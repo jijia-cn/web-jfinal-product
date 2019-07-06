@@ -1,2 +1,3 @@
 # web-jfinal-product
-Test Jfinal project
+
+Mrs Wang project

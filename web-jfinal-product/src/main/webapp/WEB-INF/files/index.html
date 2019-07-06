@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Nengli8 File Page</title>
+<style type="text/css">
+html,body{width:calc(100% - 10px);height:calc(100% - 10px);}
+.data-div{
+	display: none;
+}
+</style>
+</head>
+<body>
+<div class="data-div">
+	<input id="fileName" value="${fileName}">
+</div>
+<div id="content" style="width:100%;height: 100%;"></div>
+<script type="text/javascript" src="${ctx}/js/jquery-1.9.1.min.js"></script>
+<script type="text/javascript">
+	$(function(){
+		console.log("page already loaded");
+		var filePath = "${ctx}/filesController/jodOpenOffice?fileName="+$("#fileName").val();
+		console.log("load file name: "+filePath);
+		var ext = filePath.substr(filePath.lastIndexOf(".")+1).toLowerCase();
+		console.log("ext: "+ext);
+		if(ext == 'doc' || ext == 'docx' || ext == 'DOC' || ext == 'DOCX'
+			|| ext == 'xls' || ext == 'xlsx' || ext == 'XLS' || ext == 'XLSX'
+			|| ext == 'ppt' || ext == 'pptx' || ext == 'PPT' || ext == 'PPTX'
+			|| ext == 'pdf' || ext == 'PDF'){
+			$("#content").empty();
+			//$("#content").append("<iframe src='"+filePath+"' style='width:100%;height: 100%;'></iframe>");
+			//window.open('${ctx}/pdfjs/viewer.html?file='+filePath);
+		 	filePath = "${ctx}/filesController/jodOpenOffice?"+encodeURIComponent("fileName="+$("#fileName").val());
+			window.location.href = '${ctx}/pdfjs/viewer.html?file='+filePath;
+		}else if(ext == 'jpg' || ext == 'jpeg' || ext == 'png'){
+			$("#content").empty();
+			$("#content").append("<img src='"+filePath+"' style='width:100%;height: 100%;'></img>");
+		}else if(ext == 'mp4' || ext == 'rmvb'){
+			$("#content").empty();
+			$("#content").append("<video preload src='"+filePath+"' controls='controls' style='width:100%;height: 100%;'></video>");
+		}
+	});
+</script>
+</body>
+</html>

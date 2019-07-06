@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width,initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no" />
+	<title>Test Demos</title>
+	<!-- Add this to <head> -->
+	<link type="text/css" rel="stylesheet" href="//unpkg.com/bootstrap/dist/css/bootstrap.min.css"/>
+	<link type="text/css" rel="stylesheet" href="//unpkg.com/bootstrap-vue@latest/dist/bootstrap-vue.css"/>
+	<script src="/js/vue.js"></script>
+	<!-- Add this after vue.js -->
+	<script src="//unpkg.com/babel-polyfill@latest/dist/polyfill.min.js"></script>
+	<script src="//unpkg.com/bootstrap-vue@latest/dist/bootstrap-vue.js"></script>
+</head>
+<body>
+<div id="app">
+	<b-container fluid class="bv-example-row">
+	  <b-row>
+	    <b-col sm="5" md="6">
+	      sm="5" md="6"
+	    </b-col>
+	    <b-col sm="5" offset-sm="2" md="6" offset-md="0">
+	      sm="5" offset-sm="2" md="6" offset-md="0"
+	    </b-col>
+	  </b-row>
+	  <b-row>
+	    <b-col sm="6" md="5" lg="6">
+	      sm="6" md="5" lg="6"
+	    </b-col>
+	    <b-col sm="6" md="5" offset-md="2" lg="6" offset-lg="0">
+	      sm="6" md="5" offset-md="2" col-lg="6" offset-lg="0"
+	    </b-col>
+	  </b-row>
+	</b-container>
+</div>
+<script type="text/javascript">
+	let app = new Vue({
+		el: "#app",
+	});
+</script>
+<hr>
+<div id="cardDeck">
+    <b-card-group deck>
+        <b-card title="Title"
+                img-src="https://picsum.photos/300/300/?image=41"
+                img-alt="Img"
+                img-top>
+            <p class="card-text">
+                This is a wider card with supporting text below as a
+                natural lead-in to additional content. This content
+                is a little bit longer.
+            </p>
+            <div slot="footer">
+                <small class="text-muted">Last updated 3 mins ago</small>
+            </div>
+        </b-card>
+        <b-card title="Title"
+                img-src="https://picsum.photos/300/300/?image=41"
+                img-alt="Img"
+                img-top>
+            <p class="card-text">
+                This card has supporting text below as a natural lead-in
+                to additional content.
+            </p>
+            <div slot="footer">
+                <small class="text-muted">Last updated 3 mins ago</small>
+            </div>
+        </b-card>
+        <b-card title="Title"
+                img-src="https://picsum.photos/300/300/?image=41"
+                img-alt="Img"
+                img-top>
+            <p class="card-text">
+                This is a wider card with supporting text below as a natural
+                lead-in to additional content. This card has even longer content
+                than the first to show that equal height action.
+            </p>
+            <div slot="footer">
+                <small class="text-muted">Last updated 3 mins ago</small>
+            </div>
+        </b-card>
+    </b-card-group>
+</div>
+<script type="text/javascript">
+	let cardDeck = new Vue({
+		el: "#cardDeck",
+	});
+</script>
+<hr>
+<div id="fileModel">
+  <!-- Styled -->
+  <b-form-file multiple v-model="file" :state="Boolean(file)" placeholder="Choose a file..."></b-form-file>
+  <div class="mt-3">Selected file: {{file && file.name}}</div>
+
+  <!-- Plain mode -->
+  <b-form-file v-model="file2" class="mt-3" plain></b-form-file>
+  <div class="mt-3">Selected file: {{file2 && file2.name}}</div>
+</div>
+<script>
+	let fileModel = new Vue({
+		el: "#fileModel",
+		data () {
+		    return {
+		      file: null,
+		      file2: null
+		    }
+		}
+	});
+</script>
+<hr>
+<script type="text/javascript" src="${ctx}/vue/button-counter.js"></script>
+<div id="buttonDiv">
+	<button-counter></button-counter>
+</div>
+<script type="text/javascript">
+	let progressDiv = new Vue({
+		el: "#buttonDiv",
+		data () {
+		    return {
+		    }
+		}
+	});
+</script>
+</body>
+</html>

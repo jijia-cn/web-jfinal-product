@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Upload file test page</title>
+</head>
+<body>
+<div>
+	<div>单文件${ctx}</div>
+	<form action="${ctx}/filesController/uploadFile" method="post" enctype="multipart/form-data">
+		<input type="file" name="files">
+		<input type="submit" value="submit">
+	</form>
+</div>
+<div>
+	<div>多文件</div>
+	<form action="${ctx}/filesController/uploadFile" method="post" enctype="multipart/form-data">
+		<input type="file" name="files">
+		<input type="file" name="files2">
+		<input type="submit" value="submit">
+	</form>
+</div>
+</body>
+</html>
